@@ -2,6 +2,8 @@
 const express = require("express");
 
 const empModel = require('./model/model')
+const cors = require('cors');
+
 // 2. initializing
 const app = new express();
 // API creation
@@ -12,6 +14,7 @@ app.get('/',(req,res)=>{
 app.get('/about',(req,res)=>{
     res.send("About page")
 })
+app.use(cors());
 app.use(express.urlencoded({extended:true}))
 app.use(express.json());
 app.post('/login',(req,res)=>{
